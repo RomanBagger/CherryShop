@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест Data URL изображений</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .image-test { margin: 10px; display: inline-block; }
+        img { width: 112px; height: 112px; border: 2px solid #ccc; border-radius: 8px; }
+    </style>
+</head>
+<body>
+    <h1>Тест Data URL SVG изображений</h1>
+    
+    <div class="image-test">
+        <h3>Data URL 1</h3>
+        <img src="data:image/svg+xml,%3Csvg width='112' height='112' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient id='grad1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23667eea;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23764ba2;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23grad1)' rx='8'/%3E%3Ccircle cx='56' cy='35' r='4' fill='white' opacity='0.8'/%3E%3Ccircle cx='90' cy='90' r='3' fill='white' opacity='0.6'/%3E%3Ctext x='56' y='70' font-family='Arial, sans-serif' font-size='12' text-anchor='middle' fill='white' opacity='0.9'%3EJEWELRY%3C/text%3E%3C/svg%3E" alt="Data URL Test">
+    </div>
+    
+    <div class="image-test">
+        <h3>Файловый SVG</h3>
+        <img src="/images/products/placeholder-1.svg" alt="File SVG Test">
+    </div>
+    
+    <script>
+        // Тестируем создание data URL через JavaScript
+        function createTestSVG() {
+            const svg = `<svg width="112" height="112" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#f5576c;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#grad2)" rx="8"/>
+                <circle cx="56" cy="35" r="4" fill="white" opacity="0.8"/>
+                <circle cx="90" cy="90" r="3" fill="white" opacity="0.6"/>
+                <text x="56" y="70" font-family="Arial, sans-serif" font-size="12" 
+                      text-anchor="middle" fill="white" opacity="0.9">JEWELRY</text>
+            </svg>`;
+            
+            const dataURL = `data:image/svg+xml,${encodeURIComponent(svg)}`;
+            console.log('Generated data URL:', dataURL);
+            
+            const img = document.createElement('img');
+            img.src = dataURL;
+            img.style.width = '112px';
+            img.style.height = '112px';
+            img.style.border = '2px solid #ccc';
+            img.style.borderRadius = '8px';
+            img.alt = 'JS Generated';
+            
+            const div = document.createElement('div');
+            div.className = 'image-test';
+            div.innerHTML = '<h3>JS Generated Data URL</h3>';
+            div.appendChild(img);
+            
+            document.body.appendChild(div);
+        }
+        
+        createTestSVG();
+    </script>
+</body>
+</html>

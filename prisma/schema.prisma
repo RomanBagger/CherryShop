@@ -1,0 +1,248 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Модели для ювелирного магазина
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  firstName String
+  lastName  String
+  phone     String?
+  role      UserRole @default(CUSTOMER)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Связи
+  addresses Address[]
+  orders    Order[]
+  cart      Cart?
+  sessions  Session[]
+
+  @@map("users")
+}
+
+model Address {
+  id        String      @id @default(cuid())
+  type      AddressType
+  firstName String
+  lastName  String
+  company   String?
+  street    String
+  city      String
+  state     String
+  zipCode   String
+  country   String      @default("Россия")
+  phone     String?
+  isDefault Boolean     @default(false)
+  userId    String
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+
+  // Связи
+  user           User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  shippingOrders Order[] @relation("ShippingAddress")
+  billingOrders  Order[] @relation("BillingAddress")
+
+  @@map("addresses")
+}
+
+model Product {
+  id            String          @id @default(cuid())
+  name          String
+  description   String
+  price         Float
+  category      ProductCategory
+  inStock       Boolean         @default(true)
+  stockQuantity Int             @default(0)
+  weight        Float? // в граммах
+  length        Float? // в мм
+  width         Float? // в мм
+  height        Float? // в мм
+  diameter      Float? // в мм для колец
+  featured      Boolean         @default(false)
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime        @updatedAt
+
+  // Связи
+  images    ProductImage[]
+  materials ProductMaterial[]
+  cartItems CartItem[]
+  orderItems OrderItem[]
+
+  @@map("products")
+}
+
+model ProductImage {
+  id        String  @id @default(cuid())
+  url       String
+  alt       String
+  isPrimary Boolean @default(false)
+  order     Int     @default(0)
+  productId String
+
+  // Связи
+  product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@map("product_images")
+}
+
+model Material {
+  id     String       @id @default(cuid())
+  name   String       @unique
+  type   MaterialType
+  purity String? // например "925" для серебра
+
+  // Связи
+  products ProductMaterial[]
+
+  @@map("materials")
+}
+
+model ProductMaterial {
+  id         String @id @default(cuid())
+  productId  String
+  materialId String
+
+  // Связи
+  product  Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  material Material @relation(fields: [materialId], references: [id], onDelete: Cascade)
+
+  @@unique([productId, materialId])
+  @@map("product_materials")
+}
+
+model Cart {
+  id        String   @id @default(cuid())
+  userId    String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Связи
+  user  User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  items CartItem[]
+
+  @@map("carts")
+}
+
+model CartItem {
+  id              String @id @default(cuid())
+  cartId          String
+  productId       String
+  quantity        Int    @default(1)
+  selectedOptions Json?  @db.JsonB // для кастомизации
+
+  // Связи
+  cart    Cart    @relation(fields: [cartId], references: [id], onDelete: Cascade)
+  product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@unique([cartId, productId])
+  @@map("cart_items")
+}
+
+model Order {
+  id                String        @id @default(cuid())
+  userId            String
+  totalAmount       Float
+  status            OrderStatus   @default(PENDING)
+  paymentStatus     PaymentStatus @default(PENDING)
+  paymentId         String?
+  trackingNumber    String?
+  notes             String?
+  shippingAddressId String
+  billingAddressId  String
+  createdAt         DateTime      @default(now())
+  updatedAt         DateTime      @updatedAt
+
+  // Связи
+  user            User    @relation(fields: [userId], references: [id])
+  shippingAddress Address @relation("ShippingAddress", fields: [shippingAddressId], references: [id])
+  billingAddress  Address @relation("BillingAddress", fields: [billingAddressId], references: [id])
+  items           OrderItem[]
+
+  @@map("orders")
+}
+
+model OrderItem {
+  id              String @id @default(cuid())
+  orderId         String
+  productId       String
+  quantity        Int
+  priceAtTime     Float // цена на момент заказа
+  selectedOptions Json?  @db.JsonB
+
+  // Связи
+  order   Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  product Product @relation(fields: [productId], references: [id])
+
+  @@map("order_items")
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  userId    String
+  token     String   @unique
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+
+  // Связи
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("sessions")
+}
+
+// Перечисления (Enums)
+
+enum UserRole {
+  CUSTOMER
+  ADMIN
+}
+
+enum AddressType {
+  BILLING
+  SHIPPING
+}
+
+enum ProductCategory {
+  EARRINGS
+  BRACELETS
+  NECKLACES
+  RINGS
+  SETS
+  PENDANTS
+}
+
+enum MaterialType {
+  SILVER
+  GOLD
+  PLATINUM
+  GEMSTONE
+  PEARL
+  OTHER
+}
+
+enum OrderStatus {
+  PENDING
+  CONFIRMED
+  PROCESSING
+  SHIPPED
+  DELIVERED
+  CANCELLED
+  REFUNDED
+}
+
+enum PaymentStatus {
+  PENDING
+  COMPLETED
+  FAILED
+  REFUNDED
+}

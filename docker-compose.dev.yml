@@ -1,0 +1,56 @@
+version: '3.8'
+
+services:
+  # Next.js Development Server
+  app-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/.next
+    environment:
+      - NODE_ENV=development
+      - DATABASE_URL=postgresql://jewelry_user:jewelry_pass@db:5432/jewelry_db
+      - NEXTAUTH_URL=http://localhost:3000
+      - NEXTAUTH_SECRET=dev-secret-key
+    depends_on:
+      - db
+      - redis
+    networks:
+      - jewelry-network
+
+  # PostgreSQL Database
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: jewelry_db
+      POSTGRES_USER: jewelry_user
+      POSTGRES_PASSWORD: jewelry_pass
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data_dev:/var/lib/postgresql/data
+    networks:
+      - jewelry-network
+
+  # Redis for sessions and cache
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data_dev:/data
+    networks:
+      - jewelry-network
+
+volumes:
+  postgres_data_dev:
+  redis_data_dev:
+
+networks:
+  jewelry-network:
+    driver: bridge
