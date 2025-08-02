@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import { generateJewelrySVG } from '@/utils/jewelry-svg';
+import { useLanguage } from '@/lib/i18n/context';
+import { formatCurrency } from '@/lib/i18n/translations';
 
 interface Product {
   id: string;
@@ -22,6 +24,7 @@ interface Product {
 }
 
 export default function ProductsPage() {
+  const { t, language } = useLanguage();
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -61,7 +64,7 @@ export default function ProductsPage() {
       <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
         <div className="container mx-auto px-4 py-8">
           <div className="text-center">
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">Загрузка каталога...</h1>
+            <h1 className="text-4xl font-bold text-gray-900 mb-4">{t('products.loading')}</h1>
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600 mx-auto"></div>
           </div>
         </div>
@@ -75,11 +78,11 @@ export default function ProductsPage() {
       <div className="bg-gradient-to-r from-purple-600 via-pink-600 to-yellow-500 py-16">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6">
-            Каталог 
-            <span className="text-yellow-300"> украшений</span>
+            {t('products.catalog.title')}
+            <span className="text-yellow-300"> {t('products.catalog.subtitle')}</span>
           </h1>
           <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
-            Откройте для себя уникальную коллекцию ювелирных изделий ручной работы
+            {t('products.catalog.description')}
           </p>
         </div>
       </div>
@@ -87,15 +90,15 @@ export default function ProductsPage() {
       <div className="container mx-auto px-4 py-8">
         <div className="mb-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">
-            Найдено товаров: {products.length}
+            {t('products.productsFound')}: {products.length}
           </h2>
         </div>
 
         {products.length === 0 ? (
           <div className="text-center py-16">
             <div className="text-6xl mb-4">🔍</div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">Товары не найдены</h3>
-            <p className="text-gray-600 mb-6">Добавьте товары через админ панель</p>
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">{t('products.noProducts.title')}</h3>
+            <p className="text-gray-600 mb-6">{t('products.noProducts.description')}</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -108,11 +111,11 @@ export default function ProductsPage() {
                 <div className="absolute top-4 left-4 z-10">
                   {product.stockQuantity > 0 ? (
                     <span className="bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
-                      В наличии: {product.stockQuantity} шт.
+                      {t('products.card.inStock')}: {product.stockQuantity} {t('products.card.pieces')}
                     </span>
                   ) : (
                     <span className="bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
-                      Нет в наличии
+                      {t('products.card.outOfStock')}
                     </span>
                   )}
                 </div>
@@ -157,11 +160,7 @@ export default function ProductsPage() {
                   
                   <div className="flex items-center justify-between mb-4">
                     <span className="text-2xl font-bold text-purple-600">
-                      {new Intl.NumberFormat('ru-RU', { 
-                        style: 'currency', 
-                        currency: 'RUB', 
-                        maximumFractionDigits: 0 
-                      }).format(product.price)}
+                      {formatCurrency(product.price, language)}
                     </span>
                   </div>
                   
@@ -173,7 +172,7 @@ export default function ProductsPage() {
                     }`}
                     disabled={product.stockQuantity === 0}
                   >
-                    {product.stockQuantity > 0 ? 'Добавить в корзину' : 'Нет в наличии'}
+                    {product.stockQuantity > 0 ? t('products.card.addToCart') : t('products.card.outOfStock')}
                   </button>
                 </div>
               </div>

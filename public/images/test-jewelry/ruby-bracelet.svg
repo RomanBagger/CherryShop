@@ -1,0 +1,81 @@
+<svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="rubyBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7f1d1d;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#dc2626;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#991b1b;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="goldChain" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fbbf24;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="rubyShine" cx="40%" cy="30%" r="60%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.9" />
+      <stop offset="30%" style="stop-color:#fca5a5;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#991b1b;stop-opacity:1" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="url(#rubyBg)" rx="20"/>
+  
+  <!-- Decorative elements -->
+  <circle cx="70" cy="70" r="2" fill="url(#goldChain)" opacity="0.8">
+    <animate attributeName="opacity" values="0.8;1;0.8" dur="2.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="330" cy="330" r="3" fill="url(#goldChain)" opacity="0.6">
+    <animate attributeName="opacity" values="0.6;1;0.6" dur="3.5s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Bracelet Chain -->
+  <path d="M50 200 Q200 180 350 200" stroke="url(#goldChain)" stroke-width="8" fill="none"/>
+  <path d="M60 210 Q200 190 340 210" stroke="url(#goldChain)" stroke-width="4" fill="none" opacity="0.7"/>
+  
+  <!-- Chain links -->
+  <g stroke="url(#goldChain)" stroke-width="2" fill="none">
+    <ellipse cx="100" cy="195" rx="6" ry="8"/>
+    <ellipse cx="130" cy="192" rx="6" ry="8"/>
+    <ellipse cx="160" cy="190" rx="6" ry="8"/>
+    <ellipse cx="190" cy="189" rx="6" ry="8"/>
+    <ellipse cx="220" cy="189" rx="6" ry="8"/>
+    <ellipse cx="250" cy="190" rx="6" ry="8"/>
+    <ellipse cx="280" cy="192" rx="6" ry="8"/>
+    <ellipse cx="310" cy="195" rx="6" ry="8"/>
+  </g>
+  
+  <!-- Center Ruby -->
+  <g transform="translate(170, 160)">
+    <!-- Main ruby -->
+    <path d="M0 20 L15 0 L45 0 L60 20 L45 50 L15 50 Z" fill="url(#rubyShine)"/>
+    <!-- Facets -->
+    <path d="M5 20 L15 5 L45 5 L55 20 L30 25 Z" fill="#dc2626" opacity="0.7"/>
+    <path d="M5 20 L30 25 L55 20 L45 45 L15 45 Z" fill="#991b1b" opacity="0.8"/>
+    <!-- Highlight -->
+    <ellipse cx="25" cy="15" rx="4" ry="8" fill="white" opacity="0.8"/>
+  </g>
+  
+  <!-- Side Rubies -->
+  <g transform="translate(100, 170)">
+    <path d="M0 15 L10 0 L25 0 L35 15 L25 30 L10 30 Z" fill="url(#rubyShine)" opacity="0.8"/>
+    <ellipse cx="15" cy="10" rx="2" ry="4" fill="white" opacity="0.6"/>
+  </g>
+  
+  <g transform="translate(265, 170)">
+    <path d="M0 15 L10 0 L25 0 L35 15 L25 30 L10 30 Z" fill="url(#rubyShine)" opacity="0.8"/>
+    <ellipse cx="20" cy="10" rx="2" ry="4" fill="white" opacity="0.6"/>
+  </g>
+  
+  <!-- Title -->
+  <text x="200" y="310" font-family="serif" font-size="24" text-anchor="middle" fill="white" opacity="0.9">RUBY</text>
+  <text x="200" y="335" font-family="serif" font-size="16" text-anchor="middle" fill="#fbbf24" opacity="0.8">BRACELET</text>
+  
+  <!-- Sparkles -->
+  <g opacity="0.9">
+    <path d="M120 120 L122 128 L130 130 L122 132 L120 140 L118 132 L110 130 L118 128 Z" fill="#fbbf24">
+      <animateTransform attributeName="transform" type="rotate" values="0 120 130;360 120 130" dur="3s" repeatCount="indefinite"/>
+    </path>
+    <path d="M280 280 L281 285 L286 286 L281 287 L280 292 L279 287 L274 286 L279 285 Z" fill="white">
+      <animateTransform attributeName="transform" type="rotate" values="0 280 286;360 280 286" dur="4s" repeatCount="indefinite"/>
+    </path>
+  </g>
+</svg>

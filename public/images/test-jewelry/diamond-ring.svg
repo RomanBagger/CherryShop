@@ -1,0 +1,108 @@
+<svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="diamondBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1f2937;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#374151;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#111827;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="whiteGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8fafc;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#e2e8f0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#cbd5e1;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="diamondShine" cx="40%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="30%" style="stop-color:#f1f5f9;stop-opacity:0.8" />
+      <stop offset="70%" style="stop-color:#cbd5e1;stop-opacity:0.4" />
+      <stop offset="100%" style="stop-color:#64748b;stop-opacity:0.8" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="url(#diamondBg)" rx="20"/>
+  
+  <!-- Decorative elements -->
+  <circle cx="60" cy="60" r="2" fill="url(#whiteGold)" opacity="0.8">
+    <animate attributeName="opacity" values="0.8;1;0.8" dur="1.8s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="340" cy="340" r="3" fill="url(#whiteGold)" opacity="0.6">
+    <animate attributeName="opacity" values="0.6;0.9;0.6" dur="2.5s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Ring band -->
+  <ellipse cx="200" cy="200" rx="120" ry="120" stroke="url(#whiteGold)" stroke-width="8" fill="none"/>
+  <ellipse cx="200" cy="200" rx="105" ry="105" stroke="url(#whiteGold)" stroke-width="4" fill="none" opacity="0.7"/>
+  
+  <!-- Ring details -->
+  <g stroke="url(#whiteGold)" stroke-width="2" fill="none" opacity="0.6">
+    <path d="M200 80 Q220 85 240 95"/>
+    <path d="M240 95 Q250 115 255 135"/>
+    <path d="M255 135 Q250 155 240 175"/>
+    <path d="M240 175 Q220 185 200 190"/>
+  </g>
+  
+  <!-- Center Diamond -->
+  <g transform="translate(160, 160)">
+    <!-- Diamond facets -->
+    <path d="M40 0 L60 20 L40 40 L20 20 Z" fill="url(#diamondShine)"/>
+    <!-- Top facets -->
+    <path d="M40 0 L50 10 L40 20 L30 10 Z" fill="#f1f5f9" opacity="0.9"/>
+    <path d="M50 10 L60 20 L40 20 Z" fill="#e2e8f0" opacity="0.7"/>
+    <path d="M30 10 L40 20 L20 20 Z" fill="#e2e8f0" opacity="0.7"/>
+    <!-- Bottom facets -->
+    <path d="M40 20 L50 30 L40 40 L30 30 Z" fill="#cbd5e1" opacity="0.8"/>
+    <path d="M50 30 L60 20 L40 40 Z" fill="#94a3b8" opacity="0.6"/>
+    <path d="M30 30 L20 20 L40 40 Z" fill="#94a3b8" opacity="0.6"/>
+    <!-- Brilliant highlights -->
+    <path d="M35 10 L45 10 L40 15 Z" fill="white" opacity="0.9"/>
+    <ellipse cx="40" cy="8" rx="3" ry="1" fill="white" opacity="0.8"/>
+  </g>
+  
+  <!-- Side diamonds -->
+  <g transform="translate(140, 180)">
+    <path d="M10 0 L15 5 L10 10 L5 5 Z" fill="url(#diamondShine)" opacity="0.8"/>
+    <path d="M8 4 L12 4 L10 6 Z" fill="white" opacity="0.7"/>
+  </g>
+  
+  <g transform="translate(250, 180)">
+    <path d="M10 0 L15 5 L10 10 L5 5 Z" fill="url(#diamondShine)" opacity="0.8"/>
+    <path d="M8 4 L12 4 L10 6 Z" fill="white" opacity="0.7"/>
+  </g>
+  
+  <!-- Prong settings -->
+  <g stroke="url(#whiteGold)" stroke-width="1.5" fill="none">
+    <circle cx="180" cy="180" r="2"/>
+    <circle cx="220" cy="180" r="2"/>
+    <circle cx="180" cy="220" r="2"/>
+    <circle cx="220" cy="220" r="2"/>
+  </g>
+  
+  <!-- Title -->
+  <text x="200" y="330" font-family="serif" font-size="24" text-anchor="middle" fill="white" opacity="0.9">DIAMOND</text>
+  <text x="200" y="355" font-family="serif" font-size="16" text-anchor="middle" fill="#e2e8f0" opacity="0.8">RING</text>
+  
+  <!-- Sparkles and light rays -->
+  <g opacity="0.9">
+    <path d="M100 100 L102 108 L110 110 L102 112 L100 120 L98 112 L90 110 L98 108 Z" fill="white">
+      <animateTransform attributeName="transform" type="rotate" values="0 100 110;360 100 110" dur="2s" repeatCount="indefinite"/>
+    </path>
+    <path d="M300 300 L301 305 L306 306 L301 307 L300 312 L299 307 L294 306 L299 305 Z" fill="#f1f5f9">
+      <animateTransform attributeName="transform" type="rotate" values="0 300 306;360 300 306" dur="3s" repeatCount="indefinite"/>
+    </path>
+    <!-- Light rays -->
+    <g stroke="white" stroke-width="0.5" opacity="0.6">
+      <line x1="200" y1="160" x2="200" y2="140">
+        <animate attributeName="opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite"/>
+      </line>
+      <line x1="240" y1="200" x2="260" y2="200">
+        <animate attributeName="opacity" values="0.6;1;0.6" dur="1.8s" repeatCount="indefinite"/>
+      </line>
+      <line x1="200" y1="240" x2="200" y2="260">
+        <animate attributeName="opacity" values="0.6;1;0.6" dur="2.1s" repeatCount="indefinite"/>
+      </line>
+      <line x1="160" y1="200" x2="140" y2="200">
+        <animate attributeName="opacity" values="0.6;1;0.6" dur="1.2s" repeatCount="indefinite"/>
+      </line>
+    </g>
+  </g>
+</svg>

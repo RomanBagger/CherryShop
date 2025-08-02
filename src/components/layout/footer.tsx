@@ -1,17 +1,22 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
 import { Mail, Phone, MapPin, Instagram, Facebook, Send } from 'lucide-react';
+import { useLanguage } from '@/lib/i18n/context';
 
 export function Footer() {
+  const { t } = useLanguage();
+  
   return (
     <footer className="bg-gray-900 text-white">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* О компании */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">💎 MumiShop</h3>
+            <h3 className="text-lg font-semibold mb-4">{t('footer.about.title')}</h3>
             <p className="text-gray-300 text-sm mb-4">
-              Эксклюзивные ювелирные изделия ручной работы. Каждое украшение создается с любовью и вниманием к деталям.
+              {t('footer.about.description')}
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-300 hover:text-white transition-colors">
@@ -28,31 +33,31 @@ export function Footer() {
 
           {/* Каталог */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Каталог</h3>
+            <h3 className="text-lg font-semibold mb-4">{t('footer.catalog.title')}</h3>
             <ul className="space-y-2">
               <li>
                 <Link href="/products?category=earrings" className="text-gray-300 hover:text-white transition-colors text-sm">
-                  Серьги
+                  {t('footer.catalog.earrings')}
                 </Link>
               </li>
               <li>
                 <Link href="/products?category=bracelets" className="text-gray-300 hover:text-white transition-colors text-sm">
-                  Браслеты
+                  {t('footer.catalog.bracelets')}
                 </Link>
               </li>
               <li>
                 <Link href="/products?category=necklaces" className="text-gray-300 hover:text-white transition-colors text-sm">
-                  Колье и ожерелья
+                  {t('footer.catalog.necklaces')}
                 </Link>
               </li>
               <li>
                 <Link href="/products?category=rings" className="text-gray-300 hover:text-white transition-colors text-sm">
-                  Кольца
+                  {t('footer.catalog.rings')}
                 </Link>
               </li>
               <li>
                 <Link href="/products?category=sets" className="text-gray-300 hover:text-white transition-colors text-sm">
-                  Комплекты
+                  {t('footer.catalog.sets')}
                 </Link>
               </li>
             </ul>
@@ -60,31 +65,31 @@ export function Footer() {
 
           {/* Информация */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Информация</h3>
+            <h3 className="text-lg font-semibold mb-4">{t('footer.information.title')}</h3>
             <ul className="space-y-2">
               <li>
                 <Link href="/about" className="text-gray-300 hover:text-white transition-colors text-sm">
-                  О нас
+                  {t('footer.information.about')}
                 </Link>
               </li>
               <li>
                 <Link href="/delivery" className="text-gray-300 hover:text-white transition-colors text-sm">
-                  Доставка и оплата
+                  {t('footer.information.delivery')}
                 </Link>
               </li>
               <li>
                 <Link href="/returns" className="text-gray-300 hover:text-white transition-colors text-sm">
-                  Возврат и обмен
+                  {t('footer.information.returns')}
                 </Link>
               </li>
               <li>
                 <Link href="/care" className="text-gray-300 hover:text-white transition-colors text-sm">
-                  Уход за украшениями
+                  {t('footer.information.care')}
                 </Link>
               </li>
               <li>
                 <Link href="/size-guide" className="text-gray-300 hover:text-white transition-colors text-sm">
-                  Определение размера
+                  {t('footer.information.sizeGuide')}
                 </Link>
               </li>
             </ul>
@@ -92,25 +97,25 @@ export function Footer() {
 
           {/* Контакты */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Контакты</h3>
+            <h3 className="text-lg font-semibold mb-4">{t('footer.contacts.title')}</h3>
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <Phone className="h-4 w-4 text-gray-400" />
-                <a href="tel:+79001234567" className="text-gray-300 hover:text-white transition-colors text-sm">
-                  +7 (900) 123-45-67
+                <a href={`tel:${t('footer.contacts.phone').replace(/\s/g, '')}`} className="text-gray-300 hover:text-white transition-colors text-sm">
+                  {t('footer.contacts.phone')}
                 </a>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="h-4 w-4 text-gray-400" />
-                <a href="mailto:info@mumishop.com" className="text-gray-300 hover:text-white transition-colors text-sm">
-                  info@mumishop.com
+                <a href={`mailto:${t('footer.contacts.email')}`} className="text-gray-300 hover:text-white transition-colors text-sm">
+                  {t('footer.contacts.email')}
                 </a>
               </div>
               <div className="flex items-start space-x-3">
                 <MapPin className="h-4 w-4 text-gray-400 mt-0.5" />
                 <span className="text-gray-300 text-sm">
-                  Москва, Арбат, 25<br />
-                  Ежедневно 10:00-21:00
+                  {t('footer.contacts.address')}<br />
+                  {t('footer.contacts.schedule')}
                 </span>
               </div>
             </div>
@@ -120,14 +125,14 @@ export function Footer() {
         {/* Нижняя часть футера */}
         <div className="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm">
-            © 2025 MumiShop. Все права защищены.
+            {t('footer.bottom.copyright')}
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link href="/privacy" className="text-gray-400 hover:text-white transition-colors text-sm">
-              Политика конфиденциальности
+              {t('footer.bottom.privacy')}
             </Link>
             <Link href="/terms" className="text-gray-400 hover:text-white transition-colors text-sm">
-              Условия использования
+              {t('footer.bottom.terms')}
             </Link>
           </div>
         </div>

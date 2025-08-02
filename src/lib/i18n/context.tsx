@@ -7,6 +7,7 @@ interface LanguageContextType {
   language: Language;
   setLanguage: (lang: Language) => void;
   t: (key: string, variables?: Record<string, string | number>) => string;
+  getArray: (key: string) => any[];
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
@@ -16,13 +17,16 @@ interface LanguageProviderProps {
 }
 
 export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) => {
-  const [language, setLanguageState] = useState<Language>('ru');
+  const [language, setLanguageState] = useState<Language>('pl');
 
   // Загружаем язык из localStorage при инициализации
   useEffect(() => {
     const savedLanguage = localStorage.getItem('mumishop-language') as Language;
     if (savedLanguage && ['ru', 'en', 'pl'].includes(savedLanguage)) {
       setLanguageState(savedLanguage);
+    } else {
+      // Если нет сохраненного языка, ставим польский по умолчанию
+      setLanguageState('pl');
     }
   }, []);
 
@@ -38,8 +42,24 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
     return variables ? interpolate(translation, variables) : translation;
   };
 
+  // Функция для получения массивов из переводов
+  const getArray = (key: string): any[] => {
+    const keys = key.split('.');
+    let translation: any = require('./translations').translations[language];
+    
+    for (const k of keys) {
+      if (translation && typeof translation === 'object' && k in translation) {
+        translation = translation[k];
+      } else {
+        return [];
+      }
+    }
+    
+    return Array.isArray(translation) ? translation : [];
+  };
+
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, t }}>
+    <LanguageContext.Provider value={{ language, setLanguage, t, getArray }}>
       {children}
     </LanguageContext.Provider>
   );

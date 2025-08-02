@@ -60,6 +60,49 @@ export const translations = {
           emeraldEarrings: 'Изумрудные серьги',
           citrineNecklace: 'Цитриновое колье'
         }
+      },
+      featuredCollection: {
+        sapphireCollection: 'Сапфировая коллекция',
+        rubyElegance: 'Рубиновая элегантность',
+        aquamarineDreams: 'Аквамариновые мечты',
+        emeraldGarden: 'Изумрудный сад',
+        citrineSunset: 'Цитриновый закат',
+        mysticAmethyst: 'Мистический аметист'
+      },
+      stats: {
+        title: 'Нам доверяют',
+        subtitle: 'тысячи',
+        subtitle2: 'клиентов',
+        description: 'Присоединяйтесь к нашему сообществу ценителей эксклюзивной красоты',
+        happyClients: 'Довольных клиентов',
+        soldItems: 'Проданных изделий',
+        averageRating: 'Средняя оценка',
+        repeatPurchases: 'Повторных покупок'
+      },
+      testimonials: {
+        title: 'Что говорят наши',
+        subtitle: 'клиенты',
+        description: 'Каждое украшение рассказывает историю, а каждый отзыв вдохновляет нас на новые шедевры',
+        reviewsBasedOn: 'На основе {count} отзывов'
+      },
+      benefits: {
+        title: 'Почему выбирают',
+        subtitle: 'нас',
+        description: 'Мы создаем не просто украшения, а произведения искусства, которые подчеркивают вашу индивидуальность',
+        handmadeTitle: 'Ручная работа',
+        handmadeDescription: 'Каждое изделие создается мастером вручную с особой тщательностью и вниманием к деталям',
+        premiumMaterialsTitle: 'Премиум материалы',
+        premiumMaterialsDescription: 'Используем только высококачественные металлы, натуральные камни и проверенные материалы',
+        fastDeliveryTitle: 'Быстрая доставка',
+        fastDeliveryDescription: 'Доставляем по всей России в течение 1-3 дней с возможностью отслеживания',
+        qualityGuaranteeTitle: 'Гарантия качества',
+        qualityGuaranteeDescription: 'Предоставляем гарантию на все изделия и бесплатное обслуживание в течение года'
+      },
+      cta: {
+        viewAllProducts: 'Смотреть все изделия',
+        addToCart: 'Добавить в корзину',
+        madeWithLove: 'Made with Love',
+        hitBadge: 'ХИТ'
       }
     },
     
@@ -94,7 +137,8 @@ export const translations = {
         outOfStock: 'Нет в наличии',
         featured: 'ХИТ',
         addToCart: 'Добавить в корзину'
-      }
+      },
+      productsFound: 'Найдено товаров'
     },
     
     // Статистика
@@ -154,6 +198,84 @@ export const translations = {
       pendants: 'Подвески',
       hairpins: 'Заколки',
       sets: 'Комплекты'
+    },
+    
+    // Футер
+    footer: {
+      about: {
+        title: '💎 MumiShop',
+        description: 'Эксклюзивные ювелирные изделия ручной работы. Каждое украшение создается с любовью и вниманием к деталям.'
+      },
+      catalog: {
+        title: 'Каталог',
+        earrings: 'Серьги',
+        bracelets: 'Браслеты',
+        necklaces: 'Колье и ожерелья',
+        rings: 'Кольца',
+        sets: 'Комплекты'
+      },
+      information: {
+        title: 'Информация',
+        about: 'О нас',
+        delivery: 'Доставка и оплата',
+        returns: 'Возврат и обмен',
+        care: 'Уход за украшениями',
+        sizeGuide: 'Определение размера'
+      },
+      contacts: {
+        title: 'Контакты',
+        phone: '+7 (900) 123-45-67',
+        email: 'info@mumishop.com',
+        address: 'Москва, Арбат, 25',
+        schedule: 'Ежедневно 10:00-21:00'
+      },
+      bottom: {
+        copyright: '© 2025 MumiShop. Все права защищены.',
+        privacy: 'Политика конфиденциальности',
+        terms: 'Условия использования'
+      }
+    },
+    
+    // Отзывы клиентов
+    testimonials: {
+      customers: [
+        {
+          name: 'Анна Смирнова',
+          role: 'Счастливая невеста',
+          text: 'Невероятно красивые украшения! Серьги для свадьбы получились просто волшебными. Качество превзошло все ожидания, а дизайн уникальный.',
+          location: 'Москва'
+        },
+        {
+          name: 'Мария Петрова',
+          role: 'Коллекционер украшений',
+          text: 'У меня большая коллекция украшений, но эти изделия особенные. Каждое украшение как произведение искусства. Обязательно закажу еще!',
+          location: 'Санкт-Петербург'
+        },
+        {
+          name: 'Елена Волкова',
+          role: 'Подарок маме',
+          text: 'Покупала браслет маме на юбилей. Она была в восторге! Упаковка роскошная, а само украшение просто великолепное. Спасибо за эмоции!',
+          location: 'Екатеринбург'
+        },
+        {
+          name: 'Дарья Козлова',
+          role: 'Молодая мама',
+          text: 'Заказала кулон с камнем для защиты. Получила не только красивое украшение, но и невероятную энергетику. Ношу не снимая!',
+          location: 'Новосибирск'
+        },
+        {
+          name: 'Ольга Михайлова',
+          role: 'Учительница',
+          text: 'Долго искала стильные серьги для работы. Эти идеально подходят - элегантные, но не вызывающие. Коллеги постоянно спрашивают, где купила!',
+          location: 'Казань'
+        },
+        {
+          name: 'Виктория Лебедева',
+          role: 'Дизайнер',
+          text: 'Как дизайнер, ценю оригинальность и качество исполнения. Эти украшения - настоящее искусство! Буду рекомендовать всем подругам.',
+          location: 'Нижний Новгород'
+        }
+      ]
     }
   },
   
@@ -190,11 +312,11 @@ export const translations = {
     // Homepage
     homepage: {
       hero: {
-        title: 'MuMi',
-        subtitle: 'Masterpieces',
-        description1: 'Unique handcrafted jewelry pieces.',
-        description2: 'Each piece is a work of art,',
-        description3: ' created with love and attention to detail.',
+        title: 'Exclusive',
+        subtitle: 'Jewelry',
+        description1: 'Discover the magic of handcrafted jewelry,',
+        description2: 'created with love',
+        description3: ' and attention to the finest details.',
         viewCollection: 'View Collection',
         aboutUs: 'About Us'
       },
@@ -214,6 +336,49 @@ export const translations = {
           emeraldEarrings: 'Emerald Earrings',
           citrineNecklace: 'Citrine Necklace'
         }
+      },
+      featuredCollection: {
+        sapphireCollection: 'Sapphire Collection',
+        rubyElegance: 'Ruby Elegance',
+        aquamarineDreams: 'Aquamarine Dreams',
+        emeraldGarden: 'Emerald Garden',
+        citrineSunset: 'Citrine Sunset',
+        mysticAmethyst: 'Mystic Amethyst'
+      },
+      stats: {
+        title: 'Thousands of customers',
+        subtitle: 'trust',
+        subtitle2: 'us',
+        description: 'Join our community of exclusive beauty connoisseurs',
+        happyClients: 'Happy Clients',
+        soldItems: 'Items Sold',
+        averageRating: 'Average Rating',
+        repeatPurchases: 'Repeat Purchases'
+      },
+      testimonials: {
+        title: 'What our',
+        subtitle: 'customers say',
+        description: 'Every piece tells a story, and every review inspires us to create new masterpieces',
+        reviewsBasedOn: 'Based on {count} reviews'
+      },
+      benefits: {
+        title: 'Why choose',
+        subtitle: 'us',
+        description: 'We create not just jewelry, but works of art that highlight your individuality',
+        handmadeTitle: 'Handcrafted',
+        handmadeDescription: 'Each piece is handcrafted by artisans with special care and attention to detail',
+        premiumMaterialsTitle: 'Premium Materials',
+        premiumMaterialsDescription: 'We use only high-quality metals, natural stones and proven materials',
+        fastDeliveryTitle: 'Fast Delivery',
+        fastDeliveryDescription: 'We deliver worldwide within 3-7 days with tracking available',
+        qualityGuaranteeTitle: 'Quality Guarantee',
+        qualityGuaranteeDescription: 'We provide warranty on all products and free service for one year'
+      },
+      cta: {
+        viewAllProducts: 'View All Products',
+        addToCart: 'Add to Cart',
+        madeWithLove: 'Made with Love',
+        hitBadge: 'HIT'
       }
     },
     
@@ -248,7 +413,8 @@ export const translations = {
         outOfStock: 'Out of stock',
         featured: 'HIT',
         addToCart: 'Add to Cart'
-      }
+      },
+      productsFound: 'Products found'
     },
     
     // Home page
@@ -317,6 +483,84 @@ export const translations = {
       pendants: 'Pendants',
       hairpins: 'Hair Accessories',
       sets: 'Sets'
+    },
+    
+    // Footer
+    footer: {
+      about: {
+        title: '💎 MumiShop',
+        description: 'Exclusive handcrafted jewelry. Each piece is created with love and attention to detail.'
+      },
+      catalog: {
+        title: 'Catalog',
+        earrings: 'Earrings',
+        bracelets: 'Bracelets',
+        necklaces: 'Necklaces',
+        rings: 'Rings',
+        sets: 'Sets'
+      },
+      information: {
+        title: 'Information',
+        about: 'About Us',
+        delivery: 'Delivery & Payment',
+        returns: 'Returns & Exchange',
+        care: 'Jewelry Care',
+        sizeGuide: 'Size Guide'
+      },
+      contacts: {
+        title: 'Contacts',
+        phone: '+1 (555) 123-45-67',
+        email: 'info@mumishop.com',
+        address: 'New York, Broadway, 25',
+        schedule: 'Daily 10:00-21:00'
+      },
+      bottom: {
+        copyright: '© 2025 MumiShop. All rights reserved.',
+        privacy: 'Privacy Policy',
+        terms: 'Terms of Use'
+      }
+    },
+    
+    // Customer testimonials
+    testimonials: {
+      customers: [
+        {
+          name: 'Anna Smith',
+          role: 'Happy Bride',
+          text: 'Incredibly beautiful jewelry! The wedding earrings turned out simply magical. Quality exceeded all expectations, and the design is unique.',
+          location: 'New York'
+        },
+        {
+          name: 'Maria Johnson',
+          role: 'Jewelry Collector',
+          text: 'I have a large jewelry collection, but these pieces are special. Each piece is like a work of art. Will definitely order more!',
+          location: 'Los Angeles'
+        },
+        {
+          name: 'Elena Williams',
+          role: 'Gift for Mom',
+          text: 'Bought a bracelet for mom\'s anniversary. She was delighted! Luxurious packaging, and the jewelry itself is simply magnificent. Thank you for the emotions!',
+          location: 'Chicago'
+        },
+        {
+          name: 'Daria Brown',
+          role: 'Young Mother',
+          text: 'Ordered a pendant with a protective stone. Received not only beautiful jewelry, but also incredible energy. I wear it without taking it off!',
+          location: 'Houston'
+        },
+        {
+          name: 'Olga Davis',
+          role: 'Teacher',
+          text: 'I was looking for stylish earrings for work for a long time. These are perfect - elegant but not flashy. Colleagues constantly ask where I bought them!',
+          location: 'Phoenix'
+        },
+        {
+          name: 'Victoria Miller',
+          role: 'Designer',
+          text: 'As a designer, I appreciate originality and quality of execution. These pieces are real art! I will recommend to all my friends.',
+          location: 'Philadelphia'
+        }
+      ]
     }
   },
   
@@ -353,18 +597,18 @@ export const translations = {
     // Strona główna  
     homepage: {
       hero: {
-        title: 'MuMi',
-        subtitle: 'Arcydzieła',
-        description1: 'Wyjątkowa biżuteria ręcznie wykonana.',
-        description2: 'Każdy element to dzieło sztuki,',
-        description3: ' stworzone z miłością i dbałością o szczegóły.',
+        title: 'Ekskluzywna',
+        subtitle: 'Biżuteria',
+        description1: 'Odkryj magię ręcznie wykonanej biżuterii,',
+        description2: 'stworzonej z miłością',
+        description3: ' i uwagą do najdrobniejszych detali.',
         viewCollection: 'Zobacz kolekcję',
         aboutUs: 'O nas'
       },
       trustIndicators: {
         qualityGuarantee: 'Gwarancja jakości',
-        delivery: 'Dostawa światowa',
-        handmade: 'Ręcznie robione'
+        delivery: 'Dostawa w Polsce',
+        handmade: 'Ręczna praca'
       },
       featured: {
         title: 'Polecane',
@@ -377,6 +621,49 @@ export const translations = {
           emeraldEarrings: 'Kolczyki ze szmaragdem', 
           citrineNecklace: 'Naszyjnik z cytrynem'
         }
+      },
+      featuredCollection: {
+        sapphireCollection: 'Kolekcja Szafirowa',
+        rubyElegance: 'Rubinowa Elegancja',
+        aquamarineDreams: 'Akwamarynowe Marzenia',
+        emeraldGarden: 'Szmaragdowy Ogród',
+        citrineSunset: 'Cytrynowy Zachód',
+        mysticAmethyst: 'Mistyczny Ametyst'
+      },
+      stats: {
+        title: 'Ufa nam',
+        subtitle: 'tysiące',
+        subtitle2: 'klientów',
+        description: 'Dołącz do naszej społeczności koneserów ekskluzywnego piękna',
+        happyClients: 'Zadowolonych klientów',
+        soldItems: 'Sprzedanych przedmiotów',
+        averageRating: 'Średnia ocena',
+        repeatPurchases: 'Ponowne zakupy'
+      },
+      testimonials: {
+        title: 'Co mówią nasi',
+        subtitle: 'klienci',
+        description: 'Każdy przedmiot opowiada historię, a każda opinia inspiruje nas do tworzenia nowych arcydzieł',
+        reviewsBasedOn: 'Na podstawie {count} opinii'
+      },
+      benefits: {
+        title: 'Dlaczego nas',
+        subtitle: 'wybierają',
+        description: 'Tworzymy nie tylko biżuterię, ale dzieła sztuki, które podkreślają Twoją indywidualność',
+        handmadeTitle: 'Ręczna robota',
+        handmadeDescription: 'Każdy przedmiot jest ręcznie wykonywany przez rzemieślników ze szczególną starannością i dbałością o detale',
+        premiumMaterialsTitle: 'Materiały premium',
+        premiumMaterialsDescription: 'Używamy tylko wysokiej jakości metali, naturalnych kamieni i sprawdzonych materiałów',
+        fastDeliveryTitle: 'Szybka dostawa',
+        fastDeliveryDescription: 'Dostarczamy w Polsce w ciągu 1-3 dni z możliwością śledzenia',
+        qualityGuaranteeTitle: 'Gwarancja jakości',
+        qualityGuaranteeDescription: 'Zapewniamy gwarancję na wszystkie produkty i bezpłatny serwis przez jeden rok'
+      },
+      cta: {
+        viewAllProducts: 'Zobacz wszystkie produkty',
+        addToCart: 'Dodaj do koszyka',
+        madeWithLove: 'Stworzone z miłością',
+        hitBadge: 'HIT'
       }
     },
     
@@ -411,7 +698,8 @@ export const translations = {
         outOfStock: 'Brak w magazynie',
         featured: 'HIT',
         addToCart: 'Dodaj do koszyka'
-      }
+      },
+      productsFound: 'Znaleziono produktów'
     },
     
     // Strona główna
@@ -473,10 +761,91 @@ export const translations = {
     
     // Kategorie produktów
     categories: {
-      RINGS: 'Pierścienie',
-      EARRINGS: 'Kolczyki',
-      NECKLACES: 'Naszyjniki',
-      BRACELETS: 'Bransoletki'
+      rings: 'Pierścienie',
+      earrings: 'Kolczyki',
+      necklaces: 'Naszyjniki',
+      bracelets: 'Bransoletki',
+      pendants: 'Wisiorki',
+      hairpins: 'Akcesoria do włosów',
+      sets: 'Zestawy'
+    },
+    
+    // Stopka
+    footer: {
+      about: {
+        title: '💎 MumiShop',
+        description: 'Ekskluzywna biżuteria ręcznej roboty. Każdy element jest tworzony z miłością i dbałością o detale.'
+      },
+      catalog: {
+        title: 'Katalog',
+        earrings: 'Kolczyki',
+        bracelets: 'Bransoletki',
+        necklaces: 'Naszyjniki',
+        rings: 'Pierścienie',
+        sets: 'Zestawy'
+      },
+      information: {
+        title: 'Informacje',
+        about: 'O nas',
+        delivery: 'Dostawa i płatność',
+        returns: 'Zwroty i wymiany',
+        care: 'Pielęgnacja biżuterii',
+        sizeGuide: 'Przewodnik rozmiarów'
+      },
+      contacts: {
+        title: 'Kontakt',
+        phone: '+48 123 456 789',
+        email: 'info@mumishop.com',
+        address: 'Warszawa, Nowy Świat 25',
+        schedule: 'Codziennie 10:00-21:00'
+      },
+      bottom: {
+        copyright: '© 2025 MumiShop. Wszelkie prawa zastrzeżone.',
+        privacy: 'Polityka prywatności',
+        terms: 'Warunki użytkowania'
+      }
+    },
+    
+    // Opinie klientów
+    testimonials: {
+      customers: [
+        {
+          name: 'Anna Kowalska',
+          role: 'Szczęśliwa panna młoda',
+          text: 'Niesamowicie piękna biżuteria! Kolczyki na ślub okazały się po prostu magiczne. Jakość przewyższyła wszystkie oczekiwania, a projekt jest wyjątkowy.',
+          location: 'Warszawa'
+        },
+        {
+          name: 'Maria Nowak',
+          role: 'Kolekcjonerka biżuterii',
+          text: 'Mam dużą kolekcję biżuterii, ale te elementy są wyjątkowe. Każdy element to jak dzieło sztuki. Na pewno zamówię więcej!',
+          location: 'Kraków'
+        },
+        {
+          name: 'Elena Wiśniewska',
+          role: 'Prezent dla mamy',
+          text: 'Kupiłam bransoletkę na jubileusz mamy. Była zachwycona! Luksusowe opakowanie, a sama biżuteria po prostu wspaniała. Dziękuję za emocje!',
+          location: 'Gdańsk'
+        },
+        {
+          name: 'Daria Kamińska',
+          role: 'Młoda mama',
+          text: 'Zamówiłam wisiorek z kamieniem ochronnym. Otrzymałam nie tylko piękną biżuterię, ale także niesamowitą energię. Noszę bez zdejmowania!',
+          location: 'Wrocław'
+        },
+        {
+          name: 'Olga Lewandowska',
+          role: 'Nauczycielka',
+          text: 'Długo szukałam stylowych kolczyków do pracy. Te są idealne - eleganckie, ale nie krzykliwe. Koleżanki ciągle pytają, gdzie je kupiłam!',
+          location: 'Poznań'
+        },
+        {
+          name: 'Wiktoria Zielińska',
+          role: 'Projektantka',
+          text: 'Jako projektantka cenię oryginalność i jakość wykonania. Te elementy to prawdziwa sztuka! Będę polecać wszystkim przyjaciółkom.',
+          location: 'Łódź'
+        }
+      ]
     }
   }
 };
@@ -510,4 +879,21 @@ export const interpolate = (template: string, variables: Record<string, string |
   return template.replace(/{(\w+)}/g, (match, key) => {
     return variables[key]?.toString() || match;
   });
+};
+
+// Функция для форматирования валют в зависимости от языка
+export const formatCurrency = (amount: number, language: Language): string => {
+  const currencyConfig = {
+    ru: { locale: 'ru-RU', currency: 'RUB' },
+    en: { locale: 'en-US', currency: 'USD' },
+    pl: { locale: 'pl-PL', currency: 'PLN' }
+  };
+
+  const { locale, currency } = currencyConfig[language] || currencyConfig.ru;
+  
+  return new Intl.NumberFormat(locale, {
+    style: 'currency',
+    currency,
+    maximumFractionDigits: 0
+  }).format(amount);
 };
