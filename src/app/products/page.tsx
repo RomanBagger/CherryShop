@@ -1,9 +1,10 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { generateJewelrySVG } from '@/utils/jewelry-svg';
 import { useLanguage } from '@/lib/i18n/context';
-import { formatCurrency } from '@/lib/i18n/translations';
+import { formatCurrency, translateProductName, translateProductDescription, getTranslation } from '@/lib/i18n/translations';
 
 interface Product {
   id: string;
@@ -25,19 +26,34 @@ interface Product {
 
 export default function ProductsPage() {
   const { t, language } = useLanguage();
+  const searchParams = useSearchParams();
+  const category = searchParams.get('category');
   const [products, setProducts] = useState<Product[]>([]);
+  const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetchProducts();
   }, []);
 
+  useEffect(() => {
+    // Фильтруем товары по категории
+    if (category) {
+      const filtered = products.filter(product => 
+        product.category.toUpperCase() === category.toUpperCase()
+      );
+      setFilteredProducts(filtered);
+    } else {
+      setFilteredProducts(products);
+    }
+  }, [products, category, language]); // Добавляем language как зависимость
+
   const fetchProducts = async () => {
     try {
-      const response = await fetch('/api/admin/products');
+      const response = await fetch('/api/products');
       if (response.ok) {
-        const data = await response.json();
-        setProducts(data);
+        const result = await response.json();
+        setProducts(result.data || result.products || result); // Учитываем разные структуры ответа
       }
     } catch (err) {
       console.error('Ошибка загрузки товаров:', err);
@@ -88,13 +104,40 @@ export default function ProductsPage() {
       </div>
 
       <div className="container mx-auto px-4 py-8">
+        {/* Хлебные крошки */}
+        {category && (
+          <nav className="mb-6">
+            <div className="flex items-center space-x-2 text-sm">
+              <a href="/" className="text-purple-600 hover:text-purple-800">
+                {getTranslation('navigation.home', language)}
+              </a>
+              <span className="text-gray-400">/</span>
+              <a href="/products" className="text-purple-600 hover:text-purple-800">
+                {getTranslation('navigation.catalog', language)}
+              </a>
+              <span className="text-gray-400">/</span>
+              <span className="text-gray-800 font-medium">
+                {getTranslation(`categories.${category}`, language)}
+              </span>
+            </div>
+          </nav>
+        )}
+        
         <div className="mb-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">
-            {t('products.productsFound')}: {products.length}
+            {category 
+              ? `${getTranslation(`categories.${category}`, language)} - ${filteredProducts.length} ${getTranslation('products.productsFound', language).toLowerCase()}`
+              : `${getTranslation('products.productsFound', language)}: ${filteredProducts.length}`
+            }
           </h2>
+          {category && (
+            <p className="text-gray-600">
+              {t('navigation.allProducts')} → {t(`categories.${category}`)}
+            </p>
+          )}
         </div>
 
-        {products.length === 0 ? (
+        {filteredProducts.length === 0 ? (
           <div className="text-center py-16">
             <div className="text-6xl mb-4">🔍</div>
             <h3 className="text-2xl font-bold text-gray-900 mb-4">{t('products.noProducts.title')}</h3>
@@ -102,7 +145,7 @@ export default function ProductsPage() {
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {products.map((product, index) => (
+            {filteredProducts.map((product, index) => (
               <div 
                 key={product.id}
                 className="group bg-white rounded-2xl shadow-xl overflow-hidden transform hover:scale-105 transition-all duration-300"
@@ -133,7 +176,7 @@ export default function ProductsPage() {
                 <div className="aspect-square overflow-hidden relative">
                   <img
                     src={getImageUrl(product)}
-                    alt={product.name}
+                    alt={translateProductName(product.name, language)}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                 </div>
@@ -151,11 +194,11 @@ export default function ProductsPage() {
                   </div>
                   
                   <h3 className="font-bold text-gray-900 mb-2 group-hover:text-purple-600 transition-colors">
-                    {product.name}
+                    {translateProductName(product.name, language)}
                   </h3>
                   
                   <p className="text-gray-600 text-sm mb-4 line-clamp-2">
-                    {product.description}
+                    {translateProductDescription(product.description, language)}
                   </p>
                   
                   <div className="flex items-center justify-between mb-4">

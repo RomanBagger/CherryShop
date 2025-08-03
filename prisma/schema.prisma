@@ -151,6 +151,7 @@ model CartItem {
 
 model Order {
   id                String        @id @default(cuid())
+  orderNumber       String        @unique // ORD-001, ORD-002, etc.
   userId            String
   totalAmount       Float
   status            OrderStatus   @default(PENDING)
@@ -158,6 +159,9 @@ model Order {
   paymentId         String?
   trackingNumber    String?
   notes             String?
+  customerName      String        // Имя клиента
+  customerEmail     String        // Email клиента
+  customerPhone     String?       // Телефон клиента
   shippingAddressId String
   billingAddressId  String
   createdAt         DateTime      @default(now())

@@ -24,9 +24,22 @@ export function ProductCard({ product, className = '' }: ProductCardProps) {
   };
 
   return (
-    <div className={`group relative bg-gradient-to-br from-slate-900/80 to-slate-800/80 backdrop-blur-md rounded-3xl overflow-hidden border border-slate-700/50 hover:border-purple-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/20 hover:-translate-y-2 ${className}`}>
+    <div className={`group relative bg-gradient-to-br from-slate-900/80 to-slate-800/80 backdrop-blur-md rounded-3xl overflow-hidden border border-slate-700/50 hover:border-purple-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/20 hover:-translate-y-2 ${
+      !product.inStock ? 'opacity-75 saturate-50' : ''
+    } ${className}`}>
       {/* Градиентный overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-purple-600/10 to-pink-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      
+      {/* Out of Stock Overlay */}
+      {!product.inStock && (
+        <div className="absolute inset-0 bg-black/30 z-10 flex items-center justify-center">
+          <div className="transform -rotate-12">
+            <span className="text-4xl font-bold text-red-400 bg-black/50 px-6 py-3 rounded-lg border-2 border-red-400">
+              РАСПРОДАНО
+            </span>
+          </div>
+        </div>
+      )}
       
       {/* Image Container */}
       <div className="relative h-80 overflow-hidden bg-gradient-to-br from-slate-800 to-slate-900">
@@ -56,6 +69,24 @@ export function ProductCard({ product, className = '' }: ProductCardProps) {
           <div className="absolute top-4 left-4">
             <span className="px-3 py-1 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-sm font-medium rounded-full shadow-lg">
               ✨ Хит
+            </span>
+          </div>
+        )}
+
+        {/* Stock Status Badge */}
+        {!product.inStock && (
+          <div className="absolute top-4 left-4 z-10">
+            <span className="px-3 py-1 bg-red-600 text-white text-sm font-medium rounded-full shadow-lg">
+              Нет в наличии
+            </span>
+          </div>
+        )}
+
+        {/* Low Stock Warning */}
+        {product.inStock && product.stockQuantity <= 5 && (
+          <div className="absolute top-4 left-4 z-10">
+            <span className="px-3 py-1 bg-orange-600 text-white text-sm font-medium rounded-full shadow-lg">
+              Осталось мало: {product.stockQuantity}
             </span>
           </div>
         )}
@@ -98,16 +129,32 @@ export function ProductCard({ product, className = '' }: ProductCardProps) {
             <span className="text-2xl font-bold text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-pink-400 group-hover:bg-clip-text transition-all duration-300">
               {priceInRubles.toLocaleString('ru-RU')} ₽
             </span>
-            {!product.inStock && (
-              <span className="text-red-400 text-sm font-medium">Нет в наличии</span>
-            )}
+            <div className="flex items-center gap-2 mt-1">
+              {!product.inStock ? (
+                <span className="text-red-400 text-sm font-medium bg-red-400/10 px-2 py-1 rounded-full border border-red-400/20">
+                  ❌ Нет в наличии
+                </span>
+              ) : product.stockQuantity <= 5 ? (
+                <span className="text-orange-400 text-sm font-medium bg-orange-400/10 px-2 py-1 rounded-full border border-orange-400/20">
+                  ⚠️ Осталось: {product.stockQuantity}
+                </span>
+              ) : (
+                <span className="text-green-400 text-sm font-medium bg-green-400/10 px-2 py-1 rounded-full border border-green-400/20">
+                  ✅ В наличии: {product.stockQuantity}
+                </span>
+              )}
+            </div>
           </div>
           
           <Link
             href={`/products/${product.id}`}
-            className="px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/30 transform hover:scale-105"
+            className={`px-6 py-3 font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 ${
+              !product.inStock 
+                ? 'bg-gray-600 hover:bg-gray-700 text-gray-300 cursor-not-allowed' 
+                : 'bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white hover:shadow-lg hover:shadow-purple-500/30'
+            }`}
           >
-            Подробнее
+            {!product.inStock ? 'Закончился' : 'Подробнее'}
           </Link>
         </div>
       </div>

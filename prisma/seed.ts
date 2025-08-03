@@ -219,6 +219,92 @@ async function main() {
 
   console.log('✅ Test user and address created')
 
+  // Создаем тестовые заказы
+  const products = await prisma.product.findMany({ take: 3 });
+  const testUser = await prisma.user.findFirst({ where: { role: 'CUSTOMER' } });
+  const address = await prisma.address.findFirst();
+
+  if (testUser && address && products.length > 0) {
+    await prisma.order.createMany({
+      data: [
+        {
+          orderNumber: 'ORD-0001',
+          userId: testUser.id,
+          customerName: `${testUser.firstName} ${testUser.lastName}`,
+          customerEmail: testUser.email,
+          customerPhone: testUser.phone,
+          totalAmount: products[0].price * 2,
+          status: 'PENDING',
+          paymentStatus: 'PENDING',
+          shippingAddressId: address.id,
+          billingAddressId: address.id,
+          notes: 'Первый тестовый заказ'
+        },
+        {
+          orderNumber: 'ORD-0002',
+          userId: testUser.id,
+          customerName: `${testUser.firstName} ${testUser.lastName}`,
+          customerEmail: testUser.email,
+          customerPhone: testUser.phone,
+          totalAmount: products[1].price + products[2].price,
+          status: 'CONFIRMED',
+          paymentStatus: 'COMPLETED',
+          shippingAddressId: address.id,
+          billingAddressId: address.id,
+          notes: 'Подтвержденный заказ'
+        },
+        {
+          orderNumber: 'ORD-0003',
+          userId: testUser.id,
+          customerName: `${testUser.firstName} ${testUser.lastName}`,
+          customerEmail: testUser.email,
+          customerPhone: testUser.phone,
+          totalAmount: products[0].price * 3,
+          status: 'SHIPPED',
+          paymentStatus: 'COMPLETED',
+          trackingNumber: 'TR123456789',
+          shippingAddressId: address.id,
+          billingAddressId: address.id,
+          notes: 'Заказ отправлен'
+        }
+      ]
+    });
+
+    // Добавляем товары к заказам
+    const orders = await prisma.order.findMany();
+    
+    await prisma.orderItem.createMany({
+      data: [
+        {
+          orderId: orders[0].id,
+          productId: products[0].id,
+          quantity: 2,
+          priceAtTime: products[0].price
+        },
+        {
+          orderId: orders[1].id,
+          productId: products[1].id,
+          quantity: 1,
+          priceAtTime: products[1].price
+        },
+        {
+          orderId: orders[1].id,
+          productId: products[2].id,
+          quantity: 1,
+          priceAtTime: products[2].price
+        },
+        {
+          orderId: orders[2].id,
+          productId: products[0].id,
+          quantity: 3,
+          priceAtTime: products[0].price
+        }
+      ]
+    });
+
+    console.log('✅ Test orders created')
+  }
+
   console.log('🎉 Seeding completed!')
 }
 

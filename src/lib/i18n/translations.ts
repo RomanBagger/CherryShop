@@ -15,6 +15,41 @@ export const translations = {
     back: 'Назад',
     next: 'Далее',
     
+    // Категории товаров
+    categories: {
+      rings: 'Кольца',
+      earrings: 'Серьги', 
+      necklaces: 'Колье и ожерелья',
+      bracelets: 'Браслеты',
+      pendants: 'Подвески',
+      hairpins: 'Заколки',
+      sets: 'Комплекты'
+    },
+    
+    // Переводы товаров
+    productNames: {
+      'Сапфировые серьги "Королевский блеск"': 'Сапфировые серьги "Королевский блеск"',
+      'Рубиновый браслет "Алая страсть"': 'Рубиновый браслет "Алая страсть"',
+      'Изумрудное колье "Лесная магия"': 'Изумрудное колье "Лесная магия"',
+      'Бриллиантовое кольцо "Вечная любовь"': 'Бриллиантовое кольцо "Вечная любовь"',
+      'Золотые серьги с топазом': 'Золотые серьги с топазом',
+      'Серебряный браслет с аметистом': 'Серебряный браслет с аметистом'
+    },
+    
+    productDescriptions: {
+      'Элегантные серьги с натуральными сапфирами в золотой оправе': 'Элегантные серьги с натуральными сапфирами в золотой оправе',
+      'Роскошный браслет с рубинами, символ страсти и силы': 'Роскошный браслет с рубинами, символ страсти и силы',
+      'Изысканное колье с изумрудами, воплощение природной красоты': 'Изысканное колье с изумрудами, воплощение природной красоты',
+      'Классическое кольцо с бриллиантом, символ вечной любви': 'Классическое кольцо с бриллиантом, символ вечной любви',
+      'Утонченные серьги с голубым топазом': 'Утонченные серьги с голубым топазом',
+      'Стильный браслет с фиолетовым аметистом': 'Стильный браслет с фиолетовым аметистом',
+      'Воздушные серьги с перьевидным дизайном': 'Воздушные серьги с перьевидным дизайном',
+      'Элегантное кольцо с бриллиантами': 'Элегантное кольцо с бриллиантами',
+      'Роскошное колье из золота с сапфирами': 'Роскошное колье из золота с сапфирами',
+      'Изящный браслет с фианитами, имитирующими весенние цветы': 'Изящный браслет с фианитами, имитирующими весенние цветы',
+      'Элегантные серьги из серебра 925 пробы с натуральным жемчугом': 'Элегантные серьги из серебра 925 пробы с натуральным жемчугом'
+    },
+    
     // Поиск
     search: {
       placeholder: 'Поиск украшений...'
@@ -198,6 +233,25 @@ export const translations = {
       pendants: 'Подвески',
       hairpins: 'Заколки',
       sets: 'Комплекты'
+    },
+    
+    // Переводы товаров
+    productNames: {
+      'Сапфировые серьги "Королевский блеск"': 'Сапфировые серьги "Королевский блеск"',
+      'Рубиновый браслет "Алая страсть"': 'Рубиновый браслет "Алая страсть"',
+      'Изумрудное колье "Лесная магия"': 'Изумрудное колье "Лесная магия"',
+      'Бриллиантовое кольцо "Вечная любовь"': 'Бриллиантовое кольцо "Вечная любовь"',
+      'Золотые серьги с топазом': 'Золотые серьги с топазом',
+      'Серебряный браслет с аметистом': 'Серебряный браслет с аметистом'
+    },
+    
+    productDescriptions: {
+      'Элегантные серьги с натуральными сапфирами в золотой оправе': 'Элегантные серьги с натуральными сапфирами в золотой оправе',
+      'Роскошный браслет с рубинами, символ страсти и силы': 'Роскошный браслет с рубинами, символ страсти и силы',
+      'Изысканное колье с изумрудами, воплощение природной красоты': 'Изысканное колье с изумрудами, воплощение природной красоты',
+      'Классическое кольцо с бриллиантом, символ вечной любви': 'Классическое кольцо с бриллиантом, символ вечной любви',
+      'Утонченные серьги с голубым топазом': 'Утонченные серьги с голубым топазом',
+      'Стильный браслет с фиолетовым аметистом': 'Стильный браслет с фиолетовым аметистом'
     },
     
     // Футер
@@ -561,6 +615,49 @@ export const translations = {
           location: 'Philadelphia'
         }
       ]
+    },
+    
+    // Product categories
+    categories: {
+      rings: 'Rings',
+      earrings: 'Earrings',
+      necklaces: 'Necklaces',
+      bracelets: 'Bracelets', 
+      pendants: 'Pendants',
+      hairpins: 'Hairpins',
+      sets: 'Sets'
+    },
+    
+    // Product name translations
+    productNames: {
+      'Сапфировые серьги "Королевский блеск"': 'Sapphire Earrings "Royal Shine"',
+      'Рубиновый браслет "Алая страсть"': 'Ruby Bracelet "Scarlet Passion"',
+      'Изумрудное колье "Лесная магия"': 'Emerald Necklace "Forest Magic"',
+      'Бриллиантовое кольцо "Вечная любовь"': 'Diamond Ring "Eternal Love"',
+      'Золотые серьги с топазом': 'Gold Earrings with Topaz',
+      'Серебряный браслет с аметистом': 'Silver Bracelet with Amethyst',
+      'Серьги "Ангельские крылья"': 'Earrings "Angel Wings"',
+      'Кольцо "Вечность"': 'Ring "Eternity"',
+      'Колье "Звездная ночь"': 'Necklace "Starry Night"',
+      'Браслет "Весенний сад"': 'Bracelet "Spring Garden"',
+      'Серьги "Лунные капли"': 'Earrings "Moon Drops"'
+    },
+    
+    productDescriptions: {
+      'Элегантные серьги с натуральными сапфирами в золотой оправе': 'Elegant earrings with natural sapphires in gold setting',
+      'Роскошный браслет с рубинами, символ страсти и силы': 'Luxurious ruby bracelet, symbol of passion and strength',
+      'Изысканное колье с изумрудами, воплощение природной красоты': 'Exquisite emerald necklace, embodiment of natural beauty',
+      'Классическое кольцо с бриллиантом, символ вечной любви': 'Classic diamond ring, symbol of eternal love',
+      'Утонченные серьги с голубым топазом': 'Refined earrings with blue topaz',
+      'Стильный браслет с фиолетовым аметистом': 'Stylish bracelet with purple amethyst',
+      'Воздушные серьги с перьевидным дизайном': 'Airy earrings with feather design',
+      'Элегантное кольцо с бриллиантами': 'Elegant ring with diamonds',
+      'Изысканное колье с звездными мотивами': 'Exquisite necklace with star motifs',
+      'Нежный браслет с цветочными элементами': 'Delicate bracelet with floral elements',
+      'Романтичные серьги в форме капель': 'Romantic drop-shaped earrings',
+      'Роскошное колье из золота с сапфирами': 'Luxurious gold necklace with sapphires',
+      'Изящный браслет с фианитами, имитирующими весенние цветы': 'Delicate bracelet with cubic zirconia imitating spring flowers',
+      'Элегантные серьги из серебра 925 пробы с натуральным жемчугом': 'Elegant sterling silver earrings with natural pearls'
     }
   },
   
@@ -846,6 +943,49 @@ export const translations = {
           location: 'Łódź'
         }
       ]
+    },
+    
+    // Kategorie produktów
+    categories: {
+      rings: 'Pierścionki',
+      earrings: 'Kolczyki',
+      necklaces: 'Naszyjniki',
+      bracelets: 'Bransoletki', 
+      pendants: 'Wisiorki',
+      hairpins: 'Spinki do włosów',
+      sets: 'Komplety'
+    },
+    
+    // Tłumaczenia nazw produktów
+    productNames: {
+      'Сапфировые серьги "Королевский блеск"': 'Kolczyki szafirowe "Królewski blask"',
+      'Рубиновый браслет "Алая страсть"': 'Bransoletka rubinowa "Szkarłatna pasja"',
+      'Изумрудное колье "Лесная магия"': 'Naszyjnik szmaragdowy "Leśna magia"',
+      'Бриллиантовое кольцо "Вечная любовь"': 'Pierścionek diamentowy "Wieczna miłość"',
+      'Золотые серьги с топазом': 'Złote kolczyki z topazem',
+      'Серебряный браслет с аметистом': 'Srebrna bransoletka z ametystem',
+      'Серьги "Ангельские крылья"': 'Kolczyki "Anielskie skrzydła"',
+      'Кольцо "Вечность"': 'Pierścionek "Wieczność"',
+      'Колье "Звездная ночь"': 'Naszyjnik "Gwiezdna noc"',
+      'Браслет "Весенний сад"': 'Bransoletka "Wiosenny ogród"',
+      'Серьги "Лунные капли"': 'Kolczyki "Księżycowe krople"'
+    },
+    
+    productDescriptions: {
+      'Элегантные серьги с натуральными сапфирами в золотой оправе': 'Eleganckie kolczyki z naturalnymi szafirami w złotej oprawie',
+      'Роскошный браслет с рубинами, символ страсти и силы': 'Luksusowa bransoletka z rubinami, symbol pasji i siły',
+      'Изысканное колье с изумрудами, воплощение природной красоты': 'Wykwintny naszyjnik ze szmaragdami, ucieleśnienie naturalnego piękna',
+      'Классическое кольцо с бриллиантом, символ вечной любви': 'Klasyczny pierścionek z brylantem, symbol wiecznej miłości',
+      'Утонченные серьги с голубым топазом': 'Wyrafinowane kolczyki z błękitnym topazem',
+      'Стильный браслет с фиолетовым аметистом': 'Stylowa bransoletka z fioletowym ametystem',
+      'Воздушные серьги с перьевидным дизайном': 'Zwiewne kolczyki z motywem piór',
+      'Элегантное кольцо с бриллиантами': 'Elegancki pierścionek z brylantami',
+      'Изысканное колье с звездными мотивами': 'Wykwintny naszyjnik z motywami gwiazd',
+      'Нежный браслет с цветочными элементами': 'Delikatna bransoletka z kwiatowymi elementami',
+      'Романтичные серьги в форме капель': 'Romantyczne kolczyki w kształcie kropli',
+      'Роскошное колье из золота с сапфирами': 'Luksusowy złoty naszyjnik z szafirami',
+      'Изящный браслет с фианитами, имитирующими весенние цветы': 'Delikatna bransoletka z cyrkoniami imitującymi wiosenne kwiaty',
+      'Элегантные серьги из серебра 925 пробы с натуральным жемчугом': 'Eleganckie kolczyki ze srebra 925 z naturalnymi perłami'
     }
   }
 };
@@ -879,6 +1019,18 @@ export const interpolate = (template: string, variables: Record<string, string |
   return template.replace(/{(\w+)}/g, (match, key) => {
     return variables[key]?.toString() || match;
   });
+};
+
+// Функция для перевода названий товаров
+export const translateProductName = (name: string, language: Language): string => {
+  const productNames = translations[language]?.productNames as Record<string, string>;
+  return productNames?.[name] || name;
+};
+
+// Функция для перевода описаний товаров
+export const translateProductDescription = (description: string, language: Language): string => {
+  const productDescriptions = translations[language]?.productDescriptions as Record<string, string>;
+  return productDescriptions?.[description] || description;
 };
 
 // Функция для форматирования валют в зависимости от языка
